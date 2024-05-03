@@ -1,0 +1,145 @@
+<div
+  class="container min-vh-100 d-flex justify-content-center align-items-center"
+>
+  <div class="card" [ngStyle]="{ width: '33rem' }">
+    <form [formGroup]="registerForm" class="m-3" (ngSubmit)="submit()">
+      <h4 class="mt-3 d-flex justify-content-center">SIGNUP</h4>
+      <div class="photo-container d-flex justify-content-center">
+        <div
+          [ngStyle]="{
+            'background-image': 'url(' + imageData + ')',
+            'background-size': 'cover',
+            width: '150px',
+            height: '150px',
+            'border-radius': '100px'
+          }"
+        ></div>
+      </div>
+
+      <div class="d-flex justify-content-center p-2">
+        <input
+          id="fileButton"
+          type="file"
+          alt="user-image"
+          (change)="onFileSelect($event)"
+          name="image"
+          title="upload-image"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="fname" class="form-label">Name*</label>
+        <input
+          type="text"
+          formControlName="name"
+          class="form-control"
+          id="fname"
+          name="f-name"
+          [class.is-valid]="name?.valid"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="name?.valid || name?.untouched"
+        >
+          <small *ngIf="name?.errors?.['required']">
+            Full Name is required
+          </small>
+
+          <small *ngIf="name?.errors?.['pattern']">
+            Full Name must be 3 letter at least,
+            <b> {{name?.errors?.['pattern'].actualValue}} </b> doesn't match
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="uemail" class="form-label">Email*</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          id="uemail"
+          name="E-mail"
+          [class.is-valid]="email?.valid"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="email?.valid || email?.untouched"
+        >
+          <small *ngIf="email?.errors?.['required']"> email is required </small>
+          <small *ngIf="email?.errors?.['pattern']">
+            Email must contains &#64;Example.com,
+            <b> {{email?.errors?.['EmailNotValid'].value}} </b>
+            doesn't match
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="userPhone" class="form-label">Phone*</label>
+        <input
+          type="text"
+          formControlName="phone"
+          class="form-control"
+          id="userPhone"
+          name="phone"
+          [class.is-valid]="phone?.valid"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="phone?.valid || phone?.untouched"
+        >
+          <small *ngIf="phone?.errors?.['required']"> Phone is required </small>
+          <small *ngIf="phone?.errors?.['pattern']">
+            Phone must be 11 number ,
+            <b> {{phone?.errors?.['pattern'].actualValue}} </b> doesn't match
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="userpass" class="form-label">Password*</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          id="userpass"
+          name="Password"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="password?.valid || password?.untouched"
+        >
+          <small *ngIf="password?.errors?.['required']">
+            password is required
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="userConfpass" class="form-label">Confirm Password*</label>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          class="form-control"
+          id="userConfpass"
+          name="Password"
+        />
+        <div
+          class="alert alert-warning"
+          *ngIf="confirmPassword?.touched && confirmPassword?.invalid || (registerForm?.errors?.['UnmatchedPassword'])"
+        >
+          <small *ngIf="confirmPassword?.errors?.['required']">
+            Confirm password is required
+          </small>
+          <small *ngIf="registerForm?.errors?.['UnmatchedPassword']">
+            Confirm password must match password.
+          </small>
+        </div>
+      </div>
+      <button [disabled]="registerForm.invalid" type="submit" id="button2">
+        SignUp
+      </button>
+    </form>
+  </div>
+</div>

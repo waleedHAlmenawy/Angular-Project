@@ -1,0 +1,15 @@
+li {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  /* width: 70%; */
+  margin-top: 10px;
+  color: #7f7f7f;
+  font-size: 18px;
+}
+.active {
+  color: #ffffff;
+  background-color: #ff4500;
+  border-radius: 6px;
+}

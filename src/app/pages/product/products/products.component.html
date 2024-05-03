@@ -1,0 +1,191 @@
+<!-- Products -->
+<section>
+  <div class="container my-5 mt-5">
+    <header class="mb-4 d-flex justify-content-between align-items-center">
+      <h2 class="text-bold">Products</h2>
+      <button
+        class="btn btn-dark rounded"
+        (click)="sortProductByPrice()"
+        title="sort"
+      >
+        <i class="fa-solid fa-arrow-down-short-wide"></i>
+      </button>
+    </header>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let prd of products">
+        <app-product-card [prd]="prd"></app-product-card>
+      </div>
+    </div>
+
+    <nav
+    *ngIf="!loading"
+      aria-label="Page navigation example"
+      style="bottom: 0; left: 0; right: 0"
+      class="mt-4"
+    >
+      <ul class="pagination justify-content-center">
+        <li class="page-item" *ngIf="selectedPage > 1" style="cursor: pointer">
+          <a
+            class="page-link"
+            (click)="prevPage(selectedPage)"
+            aria-label="Previous"
+            style="color: #ff4500"
+          >
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" style="color: #ff4500">{{ selectedPage }}</a>
+        </li>
+        <li
+          class="page-item"
+          *ngIf="selectedPage < pages.length"
+          style="cursor: pointer"
+        >
+          <a
+            class="page-link"
+            (click)="nextPage(selectedPage)"
+            aria-label="Next"
+            style="color: #ff4500"
+          >
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+ 
+    <div class=" mt-2 d-flex justify-content-evenly align-items-center">
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+      
+    </div>
+
+    <div class=" mt-2 d-flex justify-content-evenly align-items-center">
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+
+      <div class="p-3 bg-light rounded" style="width: 20%;" *ngIf="loading">
+        <ngx-skeleton-loader
+          appearance="circle"
+          class="px-5"
+          [theme]="{
+            width: '100px',
+            height: '100px',
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          count="4"
+          appearance="line"
+        ></ngx-skeleton-loader>
+      </div>
+      
+    </div>
+
+</section>
+<!-- Products -->
+
+

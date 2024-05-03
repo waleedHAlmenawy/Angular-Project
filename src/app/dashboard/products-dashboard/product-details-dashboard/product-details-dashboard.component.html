@@ -1,0 +1,68 @@
+<div class="app-content">
+  <!--====== Section 1 ======-->
+  <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="d-flex align-items-center justify-content-center">
+            <img [src]="thumbnailImage" alt="image" class="u-img-fluid w-50" />
+          </div>
+          <div
+            class="w-100 d-flex align-items-center justify-content-between gap-4"
+          >
+            <div class="w-50" *ngFor="let image of product.images">
+              <img
+                [src]="image"
+                alt="image"
+                class="w-100"
+                (click)="changeThumbnailImage(image)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 p-5">
+          <!--====== Product Right Side Details ======-->
+          <div class="pd-detail">
+            <div class="mb-2">
+              <span class="pd-detail__name">{{ product.title }}</span>
+            </div>
+            <div class="mb-2">
+              <div class="pd-detail__inline">
+                <span class="pd-detail__price">${{ product.price }}</span>
+
+                <span class="pd-detail__discount"
+                  >({{ product.discount }}% OFF)</span
+                >
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="pd-detail__rating gl-rating-style">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+
+                <span class="pd-detail__review u-s-m-l-4">
+                  <a data-click-scroll="#view-review"
+                    >{{ product.reviews.length }} Reviews</a
+                  ></span
+                >
+              </div>
+            </div>
+            <div class="mb-2">
+              <div class="pd-detail__inline">
+                <span class="pd-detail__stock"
+                  >{{ product.stock }} in stock</span
+                >
+              </div>
+            </div>
+            <div class="u-s-m-b-15">
+              <span class="pd-detail__preview-desc">{{
+                product.description
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

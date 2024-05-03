@@ -1,0 +1,87 @@
+<div class="container">
+  <table class="table ">
+    <thead >
+      <tr>
+        <th class="text-center" scope="col-2">#</th>
+        <th class="text-center" scope="col-2">UserName</th>
+        <th class="text-center" scope="col-2">Products</th>
+        <th class="text-center" scope="col-2">TotalPrice</th>
+        <th class="text-center" scope="col-2">Date</th>
+        <th class="text-center" scope="col-2">Status</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!loading">
+      <tr *ngFor="let order of allOrders; let i = index" class="">
+        <td class="text-center" style="width: 10% !important">
+          <p
+            class="d-inline-block text-truncate"
+            style="max-width: 100px"
+            [title]="order._id"
+          >
+            {{ order._id }}
+          </p>
+        </td>
+        <td class="text-center" style="width: 25% !important">
+          <p
+            [title]="order.user.name"
+            class="d-inline-block text-truncate"
+            style="max-width: 200px"
+          >
+            {{ order.user.name }}
+          </p>
+        </td>
+        <td style="width: 25% !important">
+          <ul>
+            <li *ngFor="let product of order.orderItems">
+              <p
+                [title]="product.title"
+                class="text-truncate"
+                style="max-width: 150px"
+              >
+                {{ product.title }}
+              </p>
+            </li>
+          </ul>
+        </td>
+        <td class="text-center" style="width: 10% !important">
+          {{ order.totalPrice }}
+        </td>
+        <td class="text-center" style="width: 20% !important">
+          {{ order.dateOfOrder }}
+        </td>
+        <td>
+          <select
+            name="status"
+            id="status"
+            (change)="updateOrderStatus(order._id, getValuesEvent($event))"
+          >
+            <option
+              *ngFor="let status of options"
+              [value]="status"
+              [selected]="status === order.status"
+            >
+              {{ status }}
+            </option>
+          </select>
+          <!-- {{ order.status }} -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <ngx-skeleton-loader
+  *ngIf="loading"
+  count="1"
+  appearance="line"
+  [theme]="{ height: '70px' }"
+></ngx-skeleton-loader> -->
+
+<div style="padding-left: 15px">
+  <ngx-skeleton-loader
+    *ngIf="loading"
+    count="8"
+    appearance="line"
+    [theme]="{ width: '98%', height: '35px' }"
+  ></ngx-skeleton-loader>
+</div>

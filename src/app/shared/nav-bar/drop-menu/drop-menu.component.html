@@ -1,0 +1,20 @@
+<div class="mb-4 d-flex align-content-center justify-content-between m-4">
+  <div class="d-flex w-50 thumbnail" (click)="showDetails(product._id)">
+    <img [src]="product.thumbnail" class="border rounded me-3" alt="thumbnail" />
+    <div class="">
+      <a class="nav-link">{{product.title}}</a>
+      <p class="text-muted">{{product.brand}}</p>
+    </div>
+  </div>
+
+  <span class="h6 text-start align-self-center">${{product.price}}</span>
+
+  <button title="remove" (click)="toggleWishList(product._id)" class="remove col-1 align-self-center">
+    <i class="fa-solid fa-heart"  [ngClass]="{'is-in-wishlist': isInWishlist}"></i>
+  </button>
+
+  <button title="remove" (click)="toggleCart(product._id)" class="remove align-self-center">
+    <i class="fa-solid fa-cart-shopping" [ngClass]="{'is-in-cart': isInCart}"></i>
+  </button>
+
+</div>

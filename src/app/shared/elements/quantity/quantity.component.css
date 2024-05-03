@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+}
+
+.quantity {
+  display: flex;
+}
+
+.arrow, .input {
+  background-color: var(--lightGrey);
+  border: none;
+
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s;
+}
+
+.right {
+  border-radius: 0 50% 50% 0;
+}
+
+.left {
+  border-radius: 50% 0 0 50%;
+}
+
+.arrow:hover {
+  background-color: rgb(177, 175, 175);
+
+  transition: all 0.5s;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  border-right: none;
+}

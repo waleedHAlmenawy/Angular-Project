@@ -1,0 +1,235 @@
+.button {
+  background-color: #ff4500;
+  border: 1px solid #ff4500;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 30px;
+  font-weight: 600;
+}
+.button:hover {
+  border: 1px solid #ff4500;
+  background-color: #fff;
+  color: #ff4500;
+}
+#main-search {
+  padding: 0 36px 0 18px;
+  width: 100%;
+}
+
+.main-search-button {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+.input-text--style-1 {
+  color: #5c636c;
+  transition: all 0.6s linear;
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+}
+
+.input-text--border-radius {
+  border-radius: 25px;
+}
+
+.input-text {
+  font-size: 14px;
+  background-clip: padding-box;
+  padding: 0 18px;
+  height: 45px;
+}
+
+.input-text--style-1:focus {
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  border-color: #eee;
+}
+
+.icon {
+  color: #ff4500;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.product-o {
+  padding: 20px;
+  background-color: #ffffff;
+  height: 400px;
+}
+
+.product-o--hover-off {
+  box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.1);
+}
+
+.product-o--radius {
+  border-radius: 14px;
+}
+
+.product-o--hover-on {
+  transition: all 0.4s ease-in-out;
+}
+.product-o--hover-on:hover {
+  box-shadow: 0 0 21px 0 rgba(0, 0, 0, 0.1);
+}
+
+.product-o:hover .product-o__wrap:before {
+  opacity: 1;
+}
+
+.product-o:hover .product-o__action-wrap {
+  opacity: 1;
+  -webkit-transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1);
+}
+
+.product-o:hover .product-o__action-list > li {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.product-o__wrap {
+  position: relative;
+}
+.product-o__wrap:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-o__action-wrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  -webkit-transform: translateY(-50%) scale(0.8);
+  transform: translateY(-50%) scale(0.8);
+  transition: all 0.2s ease 0s;
+}
+
+.product-o__action-list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.product-o__action-list > li {
+  margin: 0 4px 6px;
+  opacity: 0;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  transition: all 0.3s ease 0.1s;
+}
+.product-o__action-list > li > a {
+  display: block;
+  width: 35px;
+  text-align: center;
+  border-radius: 50%;
+  height: 35px;
+  line-height: 35px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 12px;
+  transition: all 0.3s ease 0s;
+}
+.product-o__action-list > li > a:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.product-o__category {
+  display: block;
+  margin-top: 6px;
+  color: #a0a0a0;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.product-o__name {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.5s;
+}
+
+.product-o__review {
+  margin-left: 4px;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.product-o__price {
+  display: block;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-o__discount {
+  font-weight: 600;
+  margin-left: 30px;
+  color: #333333;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.product-o__countdown-wrap {
+  margin-top: 16px;
+}
+
+.product-o__special-count-wrap {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+
+.u-d-block {
+  display: block;
+}
+
+.aspect {
+  position: relative;
+}
+
+.aspect--bg-grey {
+  background-color: #f5f5f5;
+}
+
+.aspect--bg-grey-fb {
+  background-color: #fbfbfb;
+}
+
+.aspect--square {
+  padding-bottom: 100%;
+}
+
+.aspect__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.description-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Adjust the number of lines to truncate after */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

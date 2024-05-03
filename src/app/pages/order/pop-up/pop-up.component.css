@@ -1,0 +1,33 @@
+p {
+  font-size: 22px;
+  text-align: right;
+  cursor: pointer;
+  color: #382e2e;
+}
+span {
+  font-size: 20px;
+  margin-left: 8px;
+  color: #382e2e;
+}
+
+.btn {
+  position: relative;
+  left: 40%;
+  top: 25px;
+}
+button {
+  border: 0;
+  width: 80px;
+  padding: 8px;
+  font-size: 18px;
+  margin-left: 12px;
+  border-radius: 8px;
+  outline: 0;
+  cursor: pointer;
+  background: rgb(225, 225, 225);
+  color: #382e2e;
+}
+.btn #yes {
+  background: #ff4500;
+  color: #ffffff;
+}

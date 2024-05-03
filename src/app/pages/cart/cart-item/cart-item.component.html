@@ -1,0 +1,26 @@
+<div class="row mb-4 flex-row align-content-center justify-content-center">
+  <div class="col-6">
+    <div class="me-lg-5">
+      <div class="d-flex thumbnail" (click)="showDetails(cartItem.product._id)">
+        <img [src]="cartItem.product.thumbnail" class="border rounded me-3" alt="thumbnail" />
+        <div class="">
+          <a class="nav-link">{{cartItem.product.title}}</a>
+          <p class="text-muted">{{cartItem.product.brand}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="h6 col-2 text-start align-self-center">${{cartItem.product.price}}</span>
+
+  <app-quantity class="col-2 align-self-center" [item]="cartItem"></app-quantity>
+
+  <button  (click)="onClickHeartIcon(cartItem.product._id)" class="remove col-1 align-self-center">
+    <i class="fa-solid fa-heart" [ngClass]="{'is-in-wishlist': isInWishList}"></i>
+  </button>
+
+  <button title="remove" (click)="onClickRemove(cartItem.product._id)" class="remove  col-1 align-self-center">
+   <i class="fa-solid fa-trash text-danger"></i>
+  </button>
+
+</div>

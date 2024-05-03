@@ -1,0 +1,26 @@
+li {
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+li:hover {
+  background-color: #babfc7;
+  transition: all 0.2s;
+}
+
+.active {
+  background-color: #d8dfeb;
+  color: #285192;
+  border: none;
+}
+
+#edit-button {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#edit-button:hover {
+  font-size: 200%;
+  transition: all 0.2s;
+}

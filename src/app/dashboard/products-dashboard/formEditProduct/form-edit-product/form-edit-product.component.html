@@ -1,0 +1,229 @@
+<div class="container">
+  <div class="mainbody p-3">
+    <div (click)="closePopUp()" class="d-flex justify-content-end">
+      <i class="fa-solid fa-xmark icon"></i>
+    </div>
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="updateProduct()"
+      class="w-75 m-auto"
+    >
+      <div class="title">
+        <div class="form-group">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Title"
+            formControlName="title"
+          />
+        </div>
+        <div
+          class="errors"
+          *ngIf="
+            getFormControl('title')?.touched && getFormControl('title')?.errors
+          "
+        >
+          <div *ngIf="getFormControl('title')?.errors?.['required']">
+            title is required
+          </div>
+          <div *ngIf="getFormControl('title')?.errors?.['minlength']">
+            Min length is
+            {{ getFormControl("title")?.errors?.["minlength"]["requiredLength"] }}
+            but you entered
+            {{ getFormControl("title")?.errors?.["minlength"]["actualLength"] }}
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="category col-6">
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input
+              type="text"
+              class="form-control"
+              id="category"
+              placeholder="Category"
+              formControlName="category"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('category')?.touched &&
+              getFormControl('category')?.errors
+            "
+          >
+            <div *ngIf="getFormControl('category')?.errors?.['required']">
+              category is required
+            </div>
+            <div *ngIf="getFormControl('category')?.errors?.['minlength']">
+              Min length is
+              {{ getFormControl("category")?.errors?.["minlength"]["requiredLength"] }}
+              but you entered
+              {{ getFormControl("category")?.errors?.["minlength"]["actualLength"] }}
+            </div>
+          </div>
+        </div>
+        <div class="brand col-6">
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <input
+              type="text"
+              class="form-control"
+              id="brand"
+              formControlName="brand"
+              placeholder="Brand"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('brand')?.touched &&
+              getFormControl('brand')?.errors
+            "
+          >
+            <div *ngIf="getFormControl('brand')?.errors?.['required']">
+              brand is required
+            </div>
+            <div *ngIf="getFormControl('brand')?.errors?.['minlength']">
+              Min length is
+              {{ getFormControl("brand")?.errors?.["minlength"]["requiredLength"] }}
+              but you entered
+              {{ getFormControl("brand")?.errors?.["minlength"]["actualLength"] }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center justify-content-between">
+        <div class="price col-4">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              placeholder="Price"
+              formControlName="price"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('price')?.touched &&
+              getFormControl('price')?.errors
+            "
+          >
+            <div *ngIf="getFormControl('price')?.errors?.['required']">
+              price is required
+            </div>
+            <div *ngIf="getFormControl('price')?.errors?.['pattern']">
+              price must be a number
+            </div>
+          </div>
+        </div>
+        <div class="discount col-4">
+          <div class="form-group">
+            <label for="discount">Discount</label>
+            <input
+              type="number"
+              class="form-control"
+              id="discount"
+              placeholder="Discount"
+              formControlName="discount"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('Discount')?.touched &&
+              getFormControl('Discount')?.errors
+            "
+          >
+            <div *ngIf="getFormControl('Discount')?.errors?.['required']">
+              Discount is required
+            </div>
+            <div *ngIf="getFormControl('Discount')?.errors?.['pattern']">
+              Discount must be a number
+            </div>
+          </div>
+        </div>
+        <div class="stock col-4">
+          <div class="form-group">
+            <label for="stock">Stock</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stock"
+              placeholder="Stock"
+              formControlName="stock"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('stock')?.touched &&
+              getFormControl('stock')?.errors
+            "
+          >
+            <div *ngIf="getFormControl('stock')?.errors?.['required']">
+              stock is required
+            </div>
+            <div *ngIf="getFormControl('stock')?.errors?.['pattern']">
+              stock must be a number
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            rows="3"
+            formControlName="description"
+          ></textarea>
+        </div>
+        <div
+          class="errors"
+          *ngIf="
+            getFormControl('description')?.touched &&
+            getFormControl('description')?.errors
+          "
+        >
+          <div *ngIf="getFormControl('description')?.errors?.['required']">
+            description is required
+          </div>
+          <div *ngIf="getFormControl('description')?.errors?.['minlength']">
+            Min length is
+            {{ getFormControl("description")?.errors?.["minlength"]["requiredLength"] }}
+            but you entered
+            {{ getFormControl("description")?.errors?.["minlength"]["actualLength"] }}
+          </div>
+        </div>
+      </div>
+      <div class="isDeleted">
+        <div
+          class="form-check col-6 d-flex align-items-center justify-content-start gap-2 custom-checkbox"
+        >
+          <input
+            class="form-check-input form-control"
+            name="isDeleted"
+            type="checkbox"
+            value="false"
+            id="isDeleted"
+            formControlName="isDeleted"
+          />
+          <label class="form-check-label" for="isDeleted"> IsDeleted </label>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end" style="margin-top: 10px">
+        <div class="d-flex justify-content-center align-items-center gap-2">
+          <button type="submit" class="btn button">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

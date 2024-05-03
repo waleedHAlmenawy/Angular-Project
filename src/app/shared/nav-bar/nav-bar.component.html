@@ -1,0 +1,108 @@
+<header>
+
+  <div class="p-3 text-center bg-white border-bottom border-light">
+    <div class="container">
+      <div class="row gy-3 justify-content-between">
+
+        <div class="col-2">
+          <a routerLink="/user/home" class="float-start" style="text-decoration: none;">
+            <img src="../../../assets/logo.png" width="55" alt="logo" />
+            <span class="logo">HERO TECH</span>
+          </a>
+        </div>
+
+        <div class="order-lg-last col-3  col-md-2 icons d-flex justify-content-end align-items-center">
+          <a [routerLink]="isAuth ? '/user/profile/account' : '/signIn'" class="nav-icon">
+            <i *ngIf="isAuth" class="fas fa-user-alt m-1 me-md-2"></i>
+            <span *ngIf="!isAuth" class="sign-in">SIGN IN</span>
+          </a>
+
+          <div class="divider"></div>
+
+          <div class="position-relative" *ngIf="isAuth && role === 'user'" >
+
+            <a routerLink="/user/cart"class="nav-icon">
+              <i class="fas fa-shopping-cart m-1 me-md-2"></i>
+            </a>
+
+            <div *ngIf="isAuth" class="cart">{{cartService.cartItems.length}}</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 position-relative" (focusout)="onClick($event)">
+          <div class="form">
+            <i class="fa fa-search"></i>
+            <input
+              type="text"
+              class="form-control form-input"
+              placeholder="Search for products"
+              #searchInput
+            />
+          </div>
+
+          <div class="product-menu position-absolute">
+            <div *ngFor="let product of searchProducts">
+              <app-drop-menu [product]="product"></app-drop-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-light shadow-sm"
+  >
+    <div class="container d-flex justify-content-around align-items-center">
+      <button
+      class=" navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+
+    >
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              routerLink="/user/home"
+              routerLinkActive="active"
+              >HOME</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/user/products" routerLinkActive="active"
+              >PRODUCTS</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/user/about" routerLinkActive="active"
+              >ABOUT</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/user/contactUs"
+              routerLinkActive="active"
+              *ngIf="isAuth"
+              >CONTACT US</a
+            >
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,13 @@
+.purchase {
+  background-color: var(--primary);
+  color: white;
+}
+
+.purchase:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.discount {
+  color: var(--primary);
+}

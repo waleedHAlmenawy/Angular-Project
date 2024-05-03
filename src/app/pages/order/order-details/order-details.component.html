@@ -1,0 +1,51 @@
+
+<div class="parent">
+  <h2>Order <span>details</span></h2>
+  
+
+  <table class="table">
+    <thead>
+      <tr class="tr">
+        <th>Product</th>
+        <th>price</th>
+        <th>Quan</th>
+        <th>Date</th>
+        <th>status</th>
+        <th>total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <td>
+          <p *ngFor="let orderDetail of order.orderItems" class="product">
+            {{ orderDetail.title }}
+          </p>
+        </td>
+
+        <!-- ///////////// -->
+        <td>
+          <p *ngFor="let orderDetail of order.orderItems">
+            {{ orderDetail.price }}
+          </p>
+        </td>
+        <td>
+          <p *ngFor="let orderDetail of order.orderItems" style="display: block">
+            {{ orderDetail.quantity }}
+          </p>
+        </td>
+        <!-- ///// -->
+        <td>{{ order.dateOfOrder | date:"MM/dd" }}</td>
+        <!-- <div [ngClass]="isActive ? 'active' : 'inactive'"></div> -->
+        <td [ngClass] = "{'active' : order.status === 'Accepted' , 'pending' : order.status === 'Pending' , 'cancled' :order.status === 'Canceled'} ">{{ order.status }}</td>
+        <td>{{ order.totalPrice }}</td>
+        <td>
+          <fa-icon [icon]="faX" (click)="onCancelOrder(order._id,'cancled')"></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>

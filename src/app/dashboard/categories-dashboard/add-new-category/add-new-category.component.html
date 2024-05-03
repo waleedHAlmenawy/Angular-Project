@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="mainbody p-3">
+    <div (click)="closePopup()" class="d-flex justify-content-end">
+      <i class="fa-solid fa-xmark icon"></i>
+    </div>
+    <form
+      [formGroup]="categoryForm"
+      (ngSubmit)="addNewCategory()"
+      class="w-75 m-auto"
+    >
+      <div class="row d-flex justify-content-between align-items-center">
+        <div
+          class="col-5 d-flex flex-column justify-content-between align-items-center"
+        >
+          <div
+            class="d-flex flex-column justify-content-between align-items-center"
+          >
+            <img
+              [src]="imageData"
+              alt="img"
+              style="width: 70%"
+            />
+          </div>
+          <div
+          class="custom-file-upload hidenFiles w-100 d-flex align-items-center justify-content-center"
+        >
+          <label for="file-upload">Choose Image</label>
+          <input
+            id="file-upload"
+            type="file"
+            (change)="onFileSelect($event)"
+            name="image"
+            title="upload-image"
+          />
+        </div>
+        </div>
+        <div class="col-6">
+          <div class="categoryName">
+            <div class="form-group">
+              <label for="nameCategory" class="form-label label"
+                >Category Name
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="nameCategory"
+                formControlName="nameCategory"
+              />
+            </div>
+            <div
+              class="errors"
+              *ngIf="
+                getFormControl('nameCategory')?.touched &&
+                getFormControl('nameCategory')?.errors
+              "
+            >
+              <div
+                class="error"
+                *ngIf="getFormControl('nameCategory')?.errors?.['required']"
+              >
+                Category Name is required
+              </div>
+            </div>
+          </div>
+          <div class="description">
+            <div class="form-group">
+              <label for="description" class="form-label label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                formControlName="description"
+              ></textarea>
+            </div>
+            <div
+              class="errors"
+              *ngIf="
+                getFormControl('description')?.touched &&
+                getFormControl('description')?.errors
+              "
+            >
+              <div
+                class="error"
+                *ngIf="getFormControl('description')?.errors?.['required']"
+              >
+                Description is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end" style="margin-top: 10px">
+        <button
+          type="submit"
+          class="btn button"
+          [disabled]="categoryForm.invalid"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

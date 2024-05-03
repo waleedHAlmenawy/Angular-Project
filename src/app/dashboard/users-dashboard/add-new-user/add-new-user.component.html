@@ -1,0 +1,194 @@
+<div class="container">
+  <div class="mainbody p-3">
+    <div (click)="closePopUp()" class="d-flex justify-content-end">
+      <i class="fa-solid fa-xmark icon"></i>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="addNewUser()" class="w-75 m-auto">
+      <div class="row d-flex justify-content-between align-items-center">
+        <div
+          class="col-3 d-flex flex-column justify-content-between align-items-center"
+        >
+          <div
+            class="d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="d-flex justify-content-center align-items-center">
+              <img [src]="imageData" alt="img" style="width: 100%" />
+            </div>
+            <div class="custom-file-upload">
+              <label for="file-upload">Choose File</label>
+              <input
+                id="file-upload"
+                type="file"
+                (change)="onFileSelect($event)"
+                name="image"
+                title="upload-image"
+                formControlName="imagePath"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="form-group">
+            <label for="name" class="form-label label p-1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('name')?.touched && getFormControl('name')?.errors
+            "
+          >
+            <div
+              class="error"
+              *ngIf="getFormControl('name')?.errors?.['required']"
+            >
+              Name is required
+            </div>
+            <div
+              class="error"
+              *ngIf="getFormControl('name')?.errors?.['pattern']"
+            >
+              Name must be only characters and 3 letters at least ,
+              <b>{{getFormControl("name")?.errors?.['pattern'].actualValue}}</b>
+              , doesn't match
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label label">E-mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('email')?.touched &&
+              getFormControl('email')?.errors
+            "
+          >
+            <div
+              class="error"
+              *ngIf="getFormControl('email')?.errors?.['required']"
+            >
+              E-mail is required
+            </div>
+            <div
+              class="error"
+              *ngIf="getFormControl('email')?.errors?.['pattern']"
+            >
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('password')?.touched &&
+              getFormControl('password')?.errors
+            "
+          >
+            <div
+              class="error"
+              *ngIf="getFormControl('password')?.errors?.['required']"
+            >
+              Password is required
+            </div>
+            <div
+              class="error"
+              *ngIf="getFormControl('password')?.errors?.['minlength']"
+            >
+              Min length is
+              {{ getFormControl("password")?.errors?.["minlength"]["requiredLength"] }}
+              but you entered
+              {{ getFormControl("password")?.errors?.["minlength"]["actualLength"] }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for=" phone" class="form-label label">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id=" phone"
+              formControlName="phone"
+            />
+          </div>
+          <div
+            class="errors"
+            *ngIf="
+              getFormControl('phone')?.touched &&
+              getFormControl('phone')?.errors
+            "
+          >
+            <div
+              class="error"
+              *ngIf="getFormControl('phone')?.errors?.['required']"
+            >
+              Phone is required
+            </div>
+            <div
+              class="error"
+              *ngIf="getFormControl('phone')?.errors?.['pattern']"
+            >
+              Phone must be only numbers at 12 number at least,
+              <b
+                >{{getFormControl("phone")?.errors?.['pattern'].actualValue}}</b
+              >
+              , don't match
+            </div>
+          </div>
+          <div class="row d-flex align-items-center justify-content-center">
+            <div
+              class="form-check col-6 d-flex align-items-center justify-content-center gap-2 custom-checkbox"
+            >
+              <input
+                class="form-check-input form-control"
+                name="isAdmin"
+                type="checkbox"
+                value="true"
+                id="isAdmin"
+                formControlName="isAdmin"
+              />
+              <label class="form-check-label" for="isAdmin"> IsAdmin </label>
+            </div>
+            <div
+              class="form-check col-6 d-flex align-items-center justify-content-center gap-2 custom-checkbox"
+            >
+              <input
+                class="form-check-input form-control"
+                name="isDeleted"
+                type="checkbox"
+                value="true"
+                id="isDeleted"
+                formControlName="isDeleted"
+              />
+              <label class="form-check-label" for="isDeleted">
+                IsDeleted
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end" style="margin-top: 10px">
+        <button type="submit" class="btn button" [disabled]="userForm.invalid">
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

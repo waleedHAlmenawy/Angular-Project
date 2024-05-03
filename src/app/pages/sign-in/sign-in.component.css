@@ -1,0 +1,31 @@
+#textCenter{
+  margin-top: 30px;
+}
+
+
+#button1{
+  background-color: #ff4500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 13px 180px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+#button2{
+
+
+  background-color: #ff4500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 13px 220px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+
+}

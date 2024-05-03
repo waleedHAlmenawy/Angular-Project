@@ -1,0 +1,101 @@
+<!-- <div class=" d-flex flex-column  m-2 bCard " (mouseleave)="hideButton(prd._id)" (mouseover)="showButton(prd._id)">
+  <div class=" position-relative">
+    <a class="img-wrap">
+      <img src="{{ prd.thumbnail }}" class="card-img-top position-relative rounded" style="aspect-ratio: 1/1;"
+        alt="product-img" />
+    </a>
+
+    <button *ngIf="buttonShow" (click)="addProductToCart(prd._id)" [class.click]="isClicked" [disabled]="buttonDisabled"
+      class=" bbtn position-absolute ">
+
+      Add <i class="fas fa-shopping-cart m-1 me-md-2"></i>
+    </button>
+  </div>
+  <div class=" card-body p-3 pt-3">
+
+    <h5 class="card-title ">{{ prd.title }}</h5>
+    <p class="card-text mb-0">Brand: {{ prd.brand }}</p>
+    <p class="text">${{ prd.price }}</p>
+    <div class="d-flex ">
+      <button (click)="showDetails(prd._id)" class="btn1 rounded btn-sm ">
+        More Details
+      </button>
+
+
+    </div>
+  </div>
+</div> -->
+
+<div class="product-o product-o--hover-on product-o--radius mt-5">
+  <div class="product-o__wrap">
+    <a class="aspect aspect--bg-grey aspect--square u-d-block">
+      <img class="aspect__img" src="{{ prd.thumbnail }}" alt=""
+    /></a>
+    <div class="product-o__action-wrap">
+      <ul class="product-o__action-list">
+        <li>
+          <a
+            data-modal="modal"
+            data-modal-id="#quick-look"
+            data-tooltip="tooltip"
+            data-placement="top"
+            title="Details"
+            (click)="showDetails(prd._id)"
+            ><i class="fa-solid fa-circle-info"></i
+          ></a>
+        </li>
+
+        <button
+          class="border-0 btnn remove"
+          data-modal="modal"
+          data-modal-id="#add-to-cart"
+          data-tooltip="tooltip"
+          data-placement="top"
+          title="Add to Cart"
+          [class.click]="isClicked"
+          (click)="toggleCart(prd._id)"
+        >
+          <i
+            class="fas fa-shopping-cart"
+            [ngClass]="{ 'is-in-cart': isClicked }"
+          ></i>
+        </button>
+
+        <button
+          class="border-0 btnn mx-1"
+          data-modal="modal"
+          data-modal-id="#add-to-cart"
+          data-tooltip="tooltip"
+          data-placement="top"
+          title="Add to Cart"
+          [class.click]="isInWishlist"
+          (click)="toggleWishlist(prd._id)"
+        >
+          <i class="fas fa-heart"></i>
+        </button>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <span class="product-o__category">
+    {{ prd.category }}</span> -->
+
+  <span class="product-o__name card-title title"> {{ prd.title }}</span>
+
+  <p class="product-o__name mb-0">Brand: {{ prd.brand }}</p>
+  
+  <div class="product-o__rating gl-rating-style">
+    <i class="fas fa-star"></i><i class="fas fa-star"></i
+      ><i class="fas fa-star"></i><i class="fas fa-star"></i
+        ><i class="fas fa-star-half-alt"></i>
+        
+        <span class="product-o__review">(23)</span>
+      </div>
+      <span class="product-o__price"
+              >EGP {{prd.price - (prd.price * (prd.discount/100))  }} 
+
+              <span class="product-o__discount">{{
+                prd.price 
+              }}</span></span
+            >
+</div>

@@ -1,0 +1,19 @@
+img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.card {
+  /* height: 500px; */
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: all 0.2s;
+  padding-left: 20px;
+}
+
+
+/* ////////////////// */
+

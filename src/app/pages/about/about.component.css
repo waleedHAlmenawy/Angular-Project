@@ -1,0 +1,21 @@
+span{
+  width: 80px;
+  height: 4px;
+  background-color: #ff4500;
+}
+
+button{
+  background-color: #212423; /* Green */
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 13px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.btnStyle {
+  background-color: var(--primary);
+}

@@ -1,0 +1,17 @@
+<div class="container my-5">
+  <div class="row d-flex justify-content-between">
+    <div class="col-xl-3 col-12">
+      <ul class="list-group">
+        <li routerLink="account" routerLinkActive="active" class="list-group-item" aria-current="true">ACCOUNT</li>
+        <li routerLink="orders" routerLinkActive="active" class="list-group-item">NEW ORDERS</li>
+        <li routerLink="orders-history" routerLinkActive="active" class="list-group-item">ORDERS HISTORY</li>
+        <li routerLink="wish-list" routerLinkActive="active" class="list-group-item">MY WISHLIST</li>
+        <li class="list-group-item bg-danger:hover" (click)="logOut()">LOG OUT</li>
+      </ul>
+    </div>
+
+    <div class="col-xl-8 col-12 border rounded p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

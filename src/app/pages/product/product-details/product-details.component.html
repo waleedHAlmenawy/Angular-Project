@@ -1,0 +1,70 @@
+<!-- (mouseleave)="hideButton(productDetails._id)"
+  (mouseover)="showButton(productDetails._id)" -->
+<div class="rounded m-auto row w-75 mt-4 cardDet pt-3" *ngIf="!loading">
+  <h2 class="m-2 text-bold">Product Details</h2>
+  <div class="my-2 shadow-0 col-6">
+    <div>
+
+      <a class="img-wrap">
+        <img src="{{ productDetails.thumbnail }}" class="card-img-top rounded" style="aspect-ratio: 1 / 1" />
+      </a>
+
+    </div>
+    <div class=" mt-3">
+      <img class="w-25 p-3 rounded-5 img" src="{{ productDetails.images[0] }}" alt="" />
+      <img class="w-25 p-3 rounded-5 img" src="{{ productDetails.images[1] }}" alt="" />
+      <img class="w-25 p-3 rounded-5 img" src="{{ productDetails.images[2] }}" alt="" />
+      <img class="w-25 p-3 rounded-5 img" src="{{ productDetails.images[3] }}" alt="" />
+    </div>
+  </div>
+
+  <div class="card-body col-6 p-2">
+
+    <label class="text">Name : </label>
+    <p class="card-title d-inline pb-1">{{ productDetails.title }}</p>
+    <br>
+    <label class="text">Description : </label>
+    <p class="card-text mb-0 d-inline">{{ productDetails.description }}</p>
+    <br />
+    <label class="text">Brand : </label>
+    <p class="card-text mb-0 d-inline">{{ productDetails.brand }}</p>
+    <br />
+    <label class="text">Price :</label>
+
+    <p class="d-inline price">EGP{{ productDetails.price }}</p>
+
+    <div class="d-flex mt-4 align-items-center">
+      <div>
+        <button class="border-0 btnn rounded p-1 mt-1 px-3 btn-sm remove" data-modal="modal"
+          data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"
+          [class.click]="isClicked" (click)="addProductToCart(productDetails._id)">
+
+          <i class="fas fa-shopping-cart" [ngClass]="{ 'is-in-cart': isClicked }"></i>
+        </button>
+      </div>
+      <div class="mx-3">
+        <app-quantity [item]="cartItem"></app-quantity>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+<app-product-reviews></app-product-reviews>
+
+<div class="rounded bg-light  m-3 p-3 w-75 m-auto d-flex" *ngIf="loading">
+
+  <ngx-skeleton-loader count="1" appearance="line" [theme]="{width:'320px',height:'320px'}"></ngx-skeleton-loader>
+  <div class="m-4">
+
+    <ngx-skeleton-loader count="1" appearance="line" [theme]="{width:'100px'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="2" appearance="line" [theme]="{width:'400px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="4" appearance="line" [theme]="{width:'550px',display:'block'}"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="2" appearance="line" [theme]="{width:'120px',display:'block'}"></ngx-skeleton-loader>
+
+  </div>
+
+
+</div>

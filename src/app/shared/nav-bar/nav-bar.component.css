@@ -1,0 +1,159 @@
+/* header{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 500;
+} */
+.nav-icon {
+  text-decoration: none;
+}
+
+.nav-icon i {
+  text-decoration: none;
+
+  color: var(--secondery);
+  transition: all 0.5s;
+
+  font-size: 25px;
+}
+
+.nav-icon :hover {
+  color: var(--primary);
+  transition: all 0.5s;
+}
+
+.icons {
+  position: relative;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.divider {
+  width: 5px;
+}
+
+.cart {
+  position: absolute;
+
+  top: -5px;
+  right: -10px;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+  border-radius: 50px;
+
+  width: 25px;
+  height: 25px;
+  background-color: var(--primary);
+}
+
+#search {
+  right: 0;
+  top: 12px;
+
+  font-weight: bold;
+  font-size: 18px;
+}
+.icon:hover {
+  color: orangered;
+}
+.nav-link {
+  font-weight: bold;
+}
+.nav-link:hover {
+  color: orangered;
+}
+.active {
+  color: var(--primary);
+}
+
+.signIn {
+  color: var(--primary);
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+.product-menu {
+  width: 95%;
+  background-color: white;
+
+  z-index: 100;
+  border-radius: 10px;
+}
+
+
+body{
+
+  background: #d1d5db;
+}
+
+.height{
+
+  height: 100vh;
+}
+
+.form{
+
+  position: relative;
+}
+
+.form .fa-search{
+
+  position: absolute;
+  top:20px;
+  left: 20px;
+  color: #9ca3af;
+
+}
+
+.form span{
+
+      position: absolute;
+  right: 17px;
+  top: 13px;
+  padding: 2px;
+  border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+  padding-left: 7px;
+}
+
+.left-pan i{
+
+ padding-left: 10px;
+}
+
+.form-input{
+
+  height: 55px;
+  text-indent: 33px;
+  border-radius: 10px;
+}
+
+.form-input:focus{
+
+  box-shadow: none;
+  border: 1px solid var(--primary);
+}
+
+.sign-in {
+  text-decoration: none;
+  color: var(--secondery);
+  font-weight: bold;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: bold;
+}

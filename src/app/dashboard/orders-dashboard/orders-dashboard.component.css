@@ -1,0 +1,42 @@
+.text-truncate {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100px; /* Adjust the max-width as needed */
+}
+
+.text-truncate::after {
+  content: attr(title);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 0 5px; /* Adjust padding as needed */
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+thead tr th {
+  background-color: #f1f1f1;
+}
+
+th,
+td {
+  font-size: 16px;
+  padding: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+
+td {
+  font-size: 14px;
+}
+
+select,
+option {
+  color: #7f7f7f;
+}

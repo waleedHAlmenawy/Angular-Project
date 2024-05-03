@@ -1,0 +1,25 @@
+svg{
+  color: #ff4500;
+}
+
+#button2{
+  background-color: #ff4500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 13px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+
+}
+
+#cardPading{
+  padding: 30px;
+}
+
+#formPading{
+  padding: 100px;
+}
+

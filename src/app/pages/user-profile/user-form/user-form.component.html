@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row flex-column justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="photo-container d-flex justify-content-center">
+        <div
+          [ngStyle]="{
+            'background-image': 'url(' + imageData + ')',
+            'background-size': 'cover',
+            width: '150px',
+            height: '150px',
+            'border-radius': '100px'
+          }"
+        ></div>
+      </div>
+
+      <form [formGroup]="updateForm" class="m-3" (ngSubmit)="onSubmit()">
+
+        <div class="d-flex justify-content-center p-2">
+          <input
+            id="fileButton"
+            type="file"
+            alt="user-image"
+            (change)="onFileSelect($event)"
+            name="image"
+            title="upload-image"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="fname" class="form-label">FullName</label>
+          <input type="text" formControlName="name" class="form-control" id="fname" name="f-name"
+            [class.is-valid]="name?.valid">
+          <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
+            <small *ngIf="name?.errors?.['required']">
+              Full Name is required
+            </small>
+
+            <small *ngIf="name?.errors?.['pattern']">
+              Full Name must be 3 letter at least, <b> {{name?.errors?.['pattern'].actualValue}} </b> doesn't match
+            </small>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="userPhone" class="form-label">Phone</label>
+          <input type="text" formControlName="phone" class="form-control" id="userPhone" name="phone"
+            [class.is-valid]="phone?.valid">
+          <div class="alert alert-warning" [hidden]="phone?.valid || phone?.untouched">
+            <small *ngIf="phone?.errors?.['required']">
+              Phone is required
+            </small>
+            <small *ngIf="phone?.errors?.['pattern']">
+              Phone must be 11 number , <b> {{phone?.errors?.['pattern'].actualValue}} </b> doesn't match
+            </small>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button [disabled]="updateForm.invalid" type="submit" class="btn color-btn">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>

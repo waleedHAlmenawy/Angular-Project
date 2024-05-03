@@ -1,0 +1,28 @@
+#img {
+  width: 150px;
+  height: 150px;
+}
+
+.line {
+  height: 1px;
+
+  background-color: black;
+}
+
+#fileButton{
+  background-color: #ff4500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+
+}
+
+.color-btn {
+  background-color: #ff4500;
+  color: white;
+}

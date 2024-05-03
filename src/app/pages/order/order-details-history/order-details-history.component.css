@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+.parent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  background: #ff4500;
+  color: #ffffff;
+  height: 80px;
+  padding: 20px;
+}
+h2 span {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+th {
+  color: #382e2e;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid rgb(160, 160, 160);
+  padding: 8px;
+}
+td {
+  color: #382e2e;
+  height: 40px;
+  line-height: 40px;
+  padding: 8px;
+}
+fa-icon {
+  cursor: pointer;
+  background: #ff4500;
+  color: #ffffff;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 25px;
+  margin-left: 16px;
+}
+.active {
+  color: green;
+  font-weight: bold;
+
+}
+.pending {
+  color: rgb(245, 245, 15);
+  font-weight: bold;
+
+}
+.cancled {
+  color: red;
+  font-weight: bold;
+}
+
+.product {
+font-weight: bold;
+}

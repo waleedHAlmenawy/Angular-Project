@@ -1,0 +1,45 @@
+img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+}
+
+select {
+  width: 100px;
+}
+
+input {
+  width: 3rem;
+}
+
+.remove {
+  background-color: transparent;
+  border: none;
+}
+
+.remove i {
+  color: var(--secondery);
+  transition: all 0.5s;
+}
+
+.remove :hover {
+  color: var(--primary);
+  transition: all 0.5s;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  border-right: none;
+}
+
+.remove .is-in-cart,
+.remove .is-in-wishlist {
+  color: var(--primary);
+}
+
+.thumbnail {
+  cursor: pointer;;
+}

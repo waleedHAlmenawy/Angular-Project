@@ -1,0 +1,304 @@
+<div class="container">
+  <div class="mainbody p-3">
+    <div (click)="closePopUp()" class="d-flex justify-content-end">
+      <i class="fa-solid fa-xmark icon"></i>
+    </div>
+    <form
+      [formGroup]="productForm"
+      (ngSubmit)="addProduct()"
+      style="width: 90%; margin: auto"
+    >
+      <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-6 d-flex flex-column gap-2">
+          <div
+            class="img d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="d-flex justify-content-center align-items-center">
+              <img [src]="imageData" alt="img" style="width: 50%" />
+            </div>
+            <div
+              class="custom-file-upload hidenFiles w-100 d-flex align-items-center justify-content-center"
+            >
+              <label for="file-upload">Choose File</label>
+              <input
+                id="file-upload"
+                type="file"
+                (change)="onFileSelect($event)"
+                name="image"
+                title="upload-image"
+              />
+            </div>
+          </div>
+          <div class="title">
+            <div class="form-group">
+              <label for="title" class="form-label label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Title"
+                formControlName="title"
+              />
+            </div>
+            <div
+              class="errors"
+              *ngIf="
+                getFormControl('title')?.touched &&
+                getFormControl('title')?.errors
+              "
+            >
+              <div
+                class="error"
+                *ngIf="getFormControl('title')?.errors?.['required']"
+              >
+                title is required
+              </div>
+              <div
+                class="error"
+                *ngIf="getFormControl('title')?.errors?.['minlength']"
+              >
+                Min length is
+                {{ getFormControl("title")?.errors?.["minlength"]["requiredLength"] }}
+                but you entered
+                {{ getFormControl("title")?.errors?.["minlength"]["actualLength"] }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row d-flex justify-content-between align-items-center">
+            <div class="category col-6">
+              <div class="form-group">
+                <label for="category" class="form-label label">Category</label>
+                <select
+                  class="form-control"
+                  id="category"
+                  formControlName="category"
+                  onfocus="this.size=3;"
+                  onblur="this.size=1;"
+                  onchange="this.size=1; this.blur();"
+                >
+                  <option value="">Select Category</option>
+                  <option
+                    *ngFor="let category of categories"
+                    [value]="category.nameCategory"
+                  >
+                    {{ category.nameCategory }}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="errors"
+                *ngIf="
+                  getFormControl('category')?.touched &&
+                  getFormControl('category')?.errors
+                "
+              >
+                <div
+                  class="error"
+                  *ngIf="getFormControl('category')?.errors?.['required']"
+                >
+                  category is required
+                </div>
+              </div>
+            </div>
+            <div class="brand col-6">
+              <div class="form-group">
+                <label for="brand" class="form-label label">Brand</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="brand"
+                  formControlName="brand"
+                  placeholder="Brand"
+                />
+              </div>
+              <div
+                class="errors"
+                *ngIf="
+                  getFormControl('brand')?.touched &&
+                  getFormControl('brand')?.errors
+                "
+              >
+                <div
+                  class="error"
+                  *ngIf="getFormControl('brand')?.errors?.['required']"
+                >
+                  brand is required
+                </div>
+                <div
+                  class="error"
+                  *ngIf="getFormControl('brand')?.errors?.['minlength']"
+                >
+                  Min length is
+                  {{ getFormControl("brand")?.errors?.["minlength"]["requiredLength"] }}
+                  but you entered
+                  {{ getFormControl("brand")?.errors?.["minlength"]["actualLength"] }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center justify-content-between">
+            <div class="price col-4">
+              <div class="form-group">
+                <label for="price" class="form-label label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  placeholder="Price"
+                  formControlName="price"
+                />
+              </div>
+              <div
+                class="errors"
+                *ngIf="
+                  getFormControl('price')?.touched &&
+                  getFormControl('price')?.errors
+                "
+              >
+                <div
+                  class="error"
+                  *ngIf="getFormControl('price')?.errors?.['required']"
+                >
+                  price is required
+                </div>
+                <div
+                  class="error"
+                  *ngIf="getFormControl('price')?.errors?.['pattern']"
+                >
+                  price must be a number
+                </div>
+              </div>
+            </div>
+            <div class="discount col-4">
+              <div class="form-group">
+                <label for="discount" class="form-label label">Discount</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="discount"
+                  placeholder="Discount"
+                  formControlName="discount"
+                />
+              </div>
+              <div
+                class="errors"
+                *ngIf="
+                  getFormControl('Discount')?.touched &&
+                  getFormControl('Discount')?.errors
+                "
+              >
+                <div
+                  class="error"
+                  *ngIf="getFormControl('Discount')?.errors?.['required']"
+                >
+                  Discount is required
+                </div>
+                <div
+                  class="error"
+                  *ngIf="getFormControl('Discount')?.errors?.['pattern']"
+                >
+                  Discount must be a number
+                </div>
+              </div>
+            </div>
+            <div class="stock col-4">
+              <div class="form-group">
+                <label for="stock" class="form-label label">Stock</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="stock"
+                  placeholder="Stock"
+                  formControlName="stock"
+                />
+              </div>
+              <div
+                class="errors"
+                *ngIf="
+                  getFormControl('stock')?.touched &&
+                  getFormControl('stock')?.errors
+                "
+              >
+                <div
+                  class="error"
+                  *ngIf="getFormControl('stock')?.errors?.['required']"
+                >
+                  stock is required
+                </div>
+                <div
+                  class="error"
+                  *ngIf="getFormControl('stock')?.errors?.['pattern']"
+                >
+                  stock must be a number
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description">
+            <div class="form-group">
+              <label for="description" class="form-label label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                formControlName="description"
+              ></textarea>
+            </div>
+            <div
+              class="errors"
+              *ngIf="
+                getFormControl('description')?.touched &&
+                getFormControl('description')?.errors
+              "
+            >
+              <div
+                class="error"
+                *ngIf="getFormControl('description')?.errors?.['required']"
+              >
+                description is required
+              </div>
+              <div
+                class="error"
+                *ngIf="getFormControl('description')?.errors?.['minlength']"
+              >
+                Min length is
+                {{ getFormControl("description")?.errors?.["minlength"]["requiredLength"] }}
+                but you entered
+                {{ getFormControl("description")?.errors?.["minlength"]["actualLength"] }}
+              </div>
+            </div>
+          </div>
+          <div
+            class="custom-file-upload showfiles w-100 d-flex align-items-center justify-content-center"
+          >
+            <!-- <label for="file-upload" class="show-file-upload"
+              >Choose File</label
+            > -->
+            <input
+              multiple
+              id="file-upload"
+              type="file"
+              (change)="onFilseSelect($event)"
+              name="images"
+              title="upload-images"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end" style="margin-top: 10px">
+        <button
+          type="submit"
+          class="btn button"
+          [disabled]="!productForm.valid"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
