@@ -73,10 +73,9 @@ export class UsersDashboardComponent implements OnInit, AfterViewInit {
   }
 
   loadUsers(search: string): Observable<any> {
-
     if (search) {
       return createHttpObservable(
-        `http://localhost:3010/api/v1/users/search/user/${search}`
+        `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/search/user/${search}`
       ).pipe(
         map((res) => {
           console.log(res);

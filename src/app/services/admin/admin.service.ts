@@ -9,7 +9,7 @@ export class AdminService {
 
   getDataLength() {
     return this.httpClient.get<any>(
-      'http://localhost:3010/api/v1/admin/length'
+      'https://e-commerce-nodejs-dj4i.onrender.com/api/v1/admin/length'
     );
   }
 }

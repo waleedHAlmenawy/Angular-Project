@@ -9,33 +9,33 @@ export class UserRequestsService {
 
   getAllUsersRequest() {
     return this.httpClient.get<IUser[]>(
-      `http://localhost:3010/api/v1/users`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users`
     );
   }
 
   getUserByIdRequest(_id: string) {
     return this.httpClient.get<IUser>(
-      `http://localhost:3010/api/v1/users/${_id}`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/${_id}`
     );
   }
 
   addNewUserRequest(data: IUser) {
     return this.httpClient.post<IUser>(
-      'http://localhost:3010/api/v1/users/register',
+      'https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/register',
       data
     );
   }
 
   updateUserDataRequest(data: IUpdateUser, _id: string) {
     return this.httpClient.patch<IUpdateUser>(
-      `http://localhost:3010/api/v1/users/${_id}`,
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/${_id}`,
       data
     );
   }
 
   deletUserRequest(data: IUser) {
     return this.httpClient.delete<IUser>(
-      `http://localhost:3010/api/v1/users/${data._id}`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/${data._id}`
     );
   }
 }

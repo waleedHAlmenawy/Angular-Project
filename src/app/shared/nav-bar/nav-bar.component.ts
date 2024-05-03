@@ -112,7 +112,7 @@ export class NavBarComponent implements OnInit, AfterViewInit {
   loadProducts(search: string): Observable<any> {
     if (search) {
       return createHttpObservable(
-        `http://localhost:3010/api/v1/products/search/product/${search}`
+        `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/search/product/${search}`
       ).pipe(
         map((res) => {
           res.length = res.length > 4 ? 4 : res.length;
@@ -131,6 +131,4 @@ export class NavBarComponent implements OnInit, AfterViewInit {
       this.searchProducts = [];
     }
   }
-
-
 }

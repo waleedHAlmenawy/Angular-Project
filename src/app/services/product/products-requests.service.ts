@@ -11,19 +11,19 @@ export class ProductsRequestsService {
 
   getAllProductsRequest() {
     return this.httpClient.get<IProduct[]>(
-      `http://localhost:3010/api/v1/products/`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/`
     );
   }
 
   getProductsSearchRequest(search: string): Observable<any> {
     return this.httpClient.get(
-      `http://localhost:3010/api/v1/products/search/product/${search}`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/search/product/${search}`
     );
   }
 
   getProductByIdRequest(_id: string): Observable<IProduct> {
     return this.httpClient.get<IProduct>(
-      `http://localhost:3010/api/v1/products/${_id}`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/${_id}`
     );
   }
 
@@ -44,21 +44,21 @@ export class ProductsRequestsService {
     }
 
     return this.httpClient.post<IProduct>(
-      'http://localhost:3010/api/v1/products',
+      'https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products',
       productData
     );
   }
 
   updateProductDataRequest(data: IUpdateProduct, _id: string) {
     return this.httpClient.patch<IUpdateProduct>(
-      `http://localhost:3010/api/v1/products/${_id}`,
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/${_id}`,
       data
     );
   }
 
   deleteProductRequest(data: IProduct) {
     return this.httpClient.delete<IProduct>(
-      `http://localhost:3010/api/v1/products/${data._id}`
+      `https://e-commerce-nodejs-dj4i.onrender.com/api/v1/products/${data._id}`
     );
   }
 }

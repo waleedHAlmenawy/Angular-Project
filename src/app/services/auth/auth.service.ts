@@ -28,14 +28,14 @@ export class AuthService {
     userData.append('image', image);
 
     return this.httpClient.post(
-      'http://localhost:3010/api/v1/users/register',
+      'https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/register',
       userData
     );
   }
 
   loginRequest(user: ILogin): Observable<IAuth> {
     return this.httpClient.post<IAuth>(
-      'http://localhost:3010/api/v1/users/login',
+      'https://e-commerce-nodejs-dj4i.onrender.com/api/v1/users/login',
       user
     );
   }
